@@ -70,5 +70,7 @@ third_party/localtests: cargo_version_check sandbox_setup
 
 .PHONY: build/cargo-host/release/elf2tab
 build/cargo-host/release/elf2tab: cargo_version_check sandbox_setup
-	cd third_party/elf2tab && \
+	cp -rp -t build third_party/elf2tab && \
+	rm -f build/elf2tab/Cargo.lock && \
+	cd build/elf2tab && \
 		CARGO_TARGET_DIR="../../build/cargo-host" $(BWRAP) cargo build --release
