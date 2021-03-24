@@ -180,6 +180,7 @@ const BANNER: &'static str = concat!(
 async fn main() -> TockResult<()> {
     let mut console = Console::new();
     writeln!(console, "Starting {}", BANNER)?;
+    writeln!(console, "pr_test_trigger 2")?;
     let result = run();
     if result.is_ok() {
         writeln!(console, "Returned OK.")?;
